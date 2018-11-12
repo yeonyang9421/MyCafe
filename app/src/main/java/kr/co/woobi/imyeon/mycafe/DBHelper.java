@@ -34,7 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_ETRIES);
 
-        String[] names = {"아메리카노", "카페라떼", "카푸치노","모카"};
+        String[] names = {"Americano", "Cafelatte", "Capuccino","Moca"};
         String[] prices = {"2000", "4000", "5000","4500"};
         String sql = "insert into cafe values (null, ?, ?, '0')";
 

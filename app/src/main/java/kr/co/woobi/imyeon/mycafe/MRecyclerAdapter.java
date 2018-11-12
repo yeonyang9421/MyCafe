@@ -110,6 +110,7 @@ public class MRecyclerAdapter extends RecyclerView.Adapter<MRecyclerAdapter.MyVi
         total -= arrprice.get(holder.getLayoutPosition());
         Toast.makeText(v.getContext(), "Total : " + String.valueOf(total), Toast.LENGTH_SHORT).show();
 
+
     }
 
     private void plusTotal(View v, @NonNull MyViewHolder holder) {
