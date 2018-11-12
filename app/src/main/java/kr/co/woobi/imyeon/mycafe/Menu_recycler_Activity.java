@@ -7,12 +7,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Menu_recycler_Activity extends AppCompatActivity {
     RecyclerView recyclerView;
+    TextView mtextViewTotal;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
     SQLiteDatabase mdb;
@@ -57,6 +59,7 @@ public class Menu_recycler_Activity extends AppCompatActivity {
         arrayList.add(hashMap);
 
         recyclerView=(RecyclerView)findViewById(R.id.menu_recycler_view);
+        mtextViewTotal=(TextView)findViewById(R.id.textViewTotal);
         layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);;
         //adapter=new MRecyclerAdapter(arrayList);

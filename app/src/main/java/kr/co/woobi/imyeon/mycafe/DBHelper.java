@@ -26,7 +26,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String SQL_SELECT_ENTRIES =
             "SELECT * FROM " + TABLE_NAME;
 
-
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VESION);
     }
@@ -35,10 +34,18 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_ETRIES);
 
-//        String name="americano";
-//        String price="2000";
+        String[] names = {"아메리카노", "카페라떼", "카푸치노","모카"};
+        String[] prices = {"2000", "4000", "5000","4500"};
+        String sql = "insert into cafe values (null, ?, ?, '0')";
+
+        for(int i=0; i<names.length; i++) {
+            db.execSQL(sql, new Object[] {names[i], prices[i]});
+        }
+
+//        String[] name={"americano","capuccino","latte","moca"};
+//        String[] price={"2000", "4500", "4000","5000"};
 //        String count="0";
-//        db.execSQL("INSERT INTO cafe  VALUES (null,'"+ name + "','" + price + "','" + count + "')");
+//       db.execSQL("INSERT INTO cafe  VALUES (null,'"+ name + "','" + price + "','" + count + "')");
 //        db.execSQL("INSERT INTO cafe  VALUES (null,'"+ name + "','" + price + "','" + count + "')");
 //        db.execSQL("INSERT INTO cafe  VALUES (null,'"+ name + "','" + price + "','" + count + "')");
 
@@ -48,6 +55,15 @@ public class DBHelper extends SQLiteOpenHelper {
 //            String q = "INSERT INTO myorder VALUES (null,'" + j + "', '" + j + "','" + count + "')";
 //            db.execSQL(q);
 //        }
+
+        //민경샘꺼
+//        String name="americano";
+//        String price="2000";
+//        String count="0";
+
+//        db.execSQL("INSERT INTO cafe  VALUES (null,'"+ name + "','" + price + "','" + count + "')");
+//        db.execSQL("INSERT INTO cafe  VALUES (null,'"+ name + "','" + price + "','" + count + "')");
+//        db.execSQL("INSERT INTO cafe  VALUES (null,'"+ name + "','" + price + "','" + count + "')");
 
 
     }
