@@ -23,10 +23,13 @@ public class MRecyclerAdapter extends RecyclerView.Adapter<MRecyclerAdapter.MyVi
     int i = 0;
     int total = 0;
     ArrayList<Integer> arrprice = new ArrayList<>();
+    //멤버변수 선언 필요
+    TextView parentTextview;
 
-
-    public MRecyclerAdapter(SQLiteDatabase db) {
+            //매개변수로 텍스트뷰를 가져온다.
+    public MRecyclerAdapter(SQLiteDatabase db,TextView parentTextview) {
         this.mdb = db;
+        this.parentTextview=parentTextview;
         String query = new StringBuilder().append(DBHelper.SQL_SELECT_ENTRIES).toString();
         Cursor cursor = mdb.rawQuery(query, null);
         ArrayList<HashMap<String, Object>> arrayList1 = new ArrayList<>();
@@ -109,6 +112,7 @@ public class MRecyclerAdapter extends RecyclerView.Adapter<MRecyclerAdapter.MyVi
 
         total -= arrprice.get(holder.getLayoutPosition());
         Toast.makeText(v.getContext(), "Total : " + String.valueOf(total), Toast.LENGTH_SHORT).show();
+        parentTextview.setText( "Total : " + String.valueOf(total));
 
 
     }
@@ -116,6 +120,7 @@ public class MRecyclerAdapter extends RecyclerView.Adapter<MRecyclerAdapter.MyVi
     private void plusTotal(View v, @NonNull MyViewHolder holder) {
         total += arrprice.get(holder.getLayoutPosition());
         Toast.makeText(v.getContext(), "Total : " + String.valueOf(total), Toast.LENGTH_SHORT).show();
+        parentTextview.setText( String.valueOf("Total : " +  total));
     }
 
 

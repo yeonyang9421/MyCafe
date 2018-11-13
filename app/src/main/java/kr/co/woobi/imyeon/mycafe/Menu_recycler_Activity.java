@@ -25,9 +25,12 @@ public class Menu_recycler_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_recycler_view);
 
+        mtextViewTotal=(TextView)findViewById(R.id.textViewTotal);
         dbHelper=new DBHelper(this);
         mdb=dbHelper.getWritableDatabase();
-        adapter=new MRecyclerAdapter(mdb);
+
+        //textview를 인수로 어댑터한테 넘겨준다.
+        adapter=new MRecyclerAdapter(mdb,mtextViewTotal);
 
 
       //  getSupportActionBar().hide();
@@ -59,7 +62,7 @@ public class Menu_recycler_Activity extends AppCompatActivity {
         arrayList.add(hashMap);
 
         recyclerView=(RecyclerView)findViewById(R.id.menu_recycler_view);
-        mtextViewTotal=(TextView)findViewById(R.id.textViewTotal);
+
         layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);;
         //adapter=new MRecyclerAdapter(arrayList);
